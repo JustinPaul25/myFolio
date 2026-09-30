@@ -1,5 +1,6 @@
-/** Canonical production origin — used when env is missing or invalid. */
-const PRODUCTION_SITE_URL = "https://www.jplayan.site";
+/** Canonical production origin — used when env is missing or invalid.
+ *  Apex is primary: www currently 301s to https://jplayan.site/ */
+const PRODUCTION_SITE_URL = "https://jplayan.site";
 
 /** Canonical site origin — set NEXT_PUBLIC_SITE_URL in production. */
 function normalizeOrigin(value: string): string | null {
