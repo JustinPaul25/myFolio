@@ -133,12 +133,12 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-6 left-6 z-50 p-3 rounded-full text-[#8BBB92] border border-[#12544F]"
+        className="lg:hidden fixed top-4 left-4 z-50 inline-flex size-12 items-center justify-center rounded-full text-[#8BBB92] border border-[#12544F]"
         style={{ backgroundColor: "#092328" }}
         aria-label="Toggle menu"
       >
         <svg
-          className="w-6 h-6"
+          className="size-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

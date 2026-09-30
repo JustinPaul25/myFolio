@@ -40,8 +40,10 @@ export default function Home() {
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
 
       <div className="flex-1 flex flex-col h-screen min-w-0 overflow-hidden">
-        <div className="shrink-0 z-30 bg-[rgb(var(--bg-primary))] border-b border-[rgb(var(--border-color))] px-6 py-4 flex justify-end">
-          <ThemeToggle />
+        <div className="shrink-0 z-30 flex h-20 items-center justify-end border-b border-[rgb(var(--border-color))] bg-[rgb(var(--bg-primary))] px-4 lg:h-auto lg:px-6 lg:py-4">
+          <div className="fixed top-4 right-4 z-50 lg:static lg:top-auto lg:right-auto lg:z-auto">
+            <ThemeToggle />
+          </div>
         </div>
 
         <main className="flex flex-1 min-h-0 flex-col overflow-y-auto overflow-x-hidden bg-[rgb(var(--bg-primary))]">

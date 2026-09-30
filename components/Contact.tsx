@@ -122,7 +122,7 @@ export default function Contact() {
         className="max-w-full mx-auto"
       >
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
-          <div className="order-2 lg:order-1 w-full max-w-[260px] sm:max-w-[35%] mx-auto lg:mx-0 shrink-0">
+          <div className="hidden lg:block order-2 lg:order-1 w-full max-w-[260px] sm:max-w-[35%] mx-auto lg:mx-0 shrink-0">
             <ProfileImageFrame
               src={personalInfo.contactImage}
               alt="Abstract illustration representing connection and collaboration"

@@ -35,12 +35,12 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-3 rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border-color))] hover:border-accent hover:text-accent transition-colors"
+      className="inline-flex size-12 items-center justify-center rounded-full bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border-color))] hover:border-accent hover:text-accent transition-colors"
       aria-label="Toggle theme"
     >
       {isDark ? (
         <svg
-          className="w-5 h-5 text-[rgb(var(--text-primary))]"
+          className="size-5 text-[rgb(var(--text-primary))]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -54,7 +54,7 @@ export default function ThemeToggle() {
         </svg>
       ) : (
         <svg
-          className="w-5 h-5 text-[rgb(var(--text-primary))]"
+          className="size-5 text-[rgb(var(--text-primary))]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

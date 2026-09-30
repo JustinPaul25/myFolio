@@ -59,8 +59,8 @@ export default function Hero({ onNavigate }: HeroProps) {
 
       <div className="relative flex flex-1 items-center section-panel">
         <div className="grid w-full lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
-          {/* Copy */}
-          <div>
+          {/* Intro — first on mobile */}
+          <div className="order-1 lg:col-start-1 lg:row-start-1">
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.5 }}
@@ -102,11 +102,47 @@ export default function Hero({ onNavigate }: HeroProps) {
             <motion.p
               {...fadeUp}
               transition={{ duration: 0.55, delay: 0.2 }}
-              className="text-base lg:text-lg text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/80 leading-relaxed max-w-xl mb-8"
+              className="text-base lg:text-lg text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/80 leading-relaxed max-w-xl lg:mb-8"
             >
               {personalInfo.subheadline}
             </motion.p>
+          </div>
 
+          {/* Portrait — after intro on mobile, top of right column on desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, delay: 0.2 }}
+            className="order-2 lg:col-start-2 lg:row-start-1"
+          >
+            <div className="relative mx-auto w-full max-w-sm shrink-0 lg:mx-0">
+              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-accent/25 via-transparent to-palette-light/20 blur-md" />
+              <div className="relative overflow-hidden rounded-2xl border border-[rgb(var(--border-color))] bg-[rgb(var(--bg-secondary))]">
+                <ProfileImageFrame
+                  src={personalInfo.profilePhoto}
+                  alt={personalInfo.name}
+                  className="max-w-none"
+                  priority
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#092328]/90 via-[#092328]/40 to-transparent" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-xs uppercase tracking-wider text-accent-light mb-1">
+                    Previously
+                  </p>
+                  <p className="font-semibold text-white">
+                    {currentRole.position}
+                  </p>
+                  <p className="text-sm text-white/80">
+                    {currentRole.company} · {currentRole.startDate} –{" "}
+                    {currentRole.endDate}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTAs + proof — after portrait on mobile */}
+          <div className="order-3 lg:col-start-1 lg:row-start-2">
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.25 }}
@@ -184,38 +220,13 @@ export default function Hero({ onNavigate }: HeroProps) {
             </motion.div>
           </div>
 
-          {/* Visual column */}
+          {/* Featured + socials — after CTAs on mobile, under portrait on desktop */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.65, delay: 0.2 }}
-            className="space-y-5"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.3 }}
+            className="order-4 space-y-5 lg:col-start-2 lg:row-start-2"
           >
-            <div className="relative mx-auto w-full max-w-sm shrink-0 lg:mx-0">
-              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-accent/25 via-transparent to-palette-light/20 blur-md" />
-              <div className="relative overflow-hidden rounded-2xl border border-[rgb(var(--border-color))] bg-[rgb(var(--bg-secondary))]">
-                <ProfileImageFrame
-                  src={personalInfo.profilePhoto}
-                  alt={personalInfo.name}
-                  className="max-w-none"
-                  priority
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#092328]/90 via-[#092328]/40 to-transparent" />
-                <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-xs uppercase tracking-wider text-accent-light mb-1">
-                    Previously
-                  </p>
-                  <p className="font-semibold text-white">
-                    {currentRole.position}
-                  </p>
-                  <p className="text-sm text-white/80">
-                    {currentRole.company} · {currentRole.startDate} –{" "}
-                    {currentRole.endDate}
-                  </p>
-                </div>
-              </div>
-            </div>
-
             {featuredProject && (
               <button
                 onClick={() => onNavigate?.("projects")}
