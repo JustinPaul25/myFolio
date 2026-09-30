@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # NEXT_PUBLIC_* values are intentionally inlined into the client bundle.
+  # Netlify secret scanning also false-positives heavily inside Next.js / plugin output.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,NEXT_PUBLIC_SITE_URL"
+  SECRETS_SCAN_OMIT_PATHS = ".netlify,.next,node_modules"
