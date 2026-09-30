@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode — soft sage surfaces with deep green text */
+    --bg-primary: 248 251 249;
+    --bg-secondary: 255 255 255;
+    --text-primary: 9 35 40;
+    --text-secondary: 18 84 79;
+    --border-color: 196 220 200;
+    --sidebar-bg: 9 35 40;
+    --sidebar-text: 248 251 249;
+    --sidebar-muted: 139 187 146;
+    --sidebar-active: 18 84 79;
+  }
+
+  .dark {
+    /* Dark mode — grounded in #092328 / #12544F */
+    --bg-primary: 9 35 40;
+    --bg-secondary: 18 84 79;
+    --text-primary: 248 251 249;
+    --text-secondary: 139 187 146;
+    --border-color: 42 131 95;
+    --sidebar-bg: 9 35 40;
+    --sidebar-text: 248 251 249;
+    --sidebar-muted: 139 187 146;
+    --sidebar-active: 42 131 95;
+  }
+
+  body {
+    @apply bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-primary))] antialiased;
+  }
+
+  html,
+  body {
+    @apply h-full overflow-hidden;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-spacing {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  /* Tab panel rhythm — keep every content section on the same grid */
+  .section-panel {
+    @apply p-8 lg:p-12;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold mb-8;
+  }
+
+  .section-heading-lead {
+    @apply text-3xl font-bold mb-3;
+  }
+
+  .section-lead {
+    @apply text-[rgb(var(--text-secondary))] mb-8;
+  }
+
+  .heading-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .heading-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .heading-3 {
+    @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+  }
+
+  .body-large {
+    @apply text-lg sm:text-xl text-[rgb(var(--text-secondary))] leading-relaxed;
+  }
+
+  .body-text {
+    @apply text-base text-[rgb(var(--text-secondary))] leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
