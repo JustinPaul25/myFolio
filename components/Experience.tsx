@@ -63,7 +63,7 @@ export default function Experience() {
                         ) : (
                           companyHeading
                         )}
-                        <p className="text-accent font-medium mt-1">
+                        <p className="text-accent dark:text-accent-light font-medium mt-1">
                           {job.position}
                         </p>
                       </div>

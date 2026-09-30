@@ -245,30 +245,30 @@ export default function Contact() {
                 ) : null}
               </div>
             </form>
-          </div>
-        </div>
 
-        <div className="mt-12 pt-8 border-t border-[rgb(var(--border-color))]">
-          <p className="text-sm text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/70 mb-4">
-            Or connect elsewhere
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {contactSocials.map((link, index) => (
-              <motion.a
-                key={link.platform}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.platform}
-                title={link.platform}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="inline-flex items-center justify-center size-11 bg-[rgb(var(--bg-secondary))] hover:bg-accent/10 border border-[rgb(var(--border-color))] text-[rgb(var(--text-secondary))] dark:text-accent-light hover:border-accent/50 hover:text-accent dark:hover:text-white rounded-lg transition-all"
-              >
-                <SocialIcon platform={link.platform} />
-              </motion.a>
-            ))}
+            <div className="mt-8 pt-6 border-t border-[rgb(var(--border-color))]">
+              <p className="text-sm text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/70 mb-4">
+                Or connect elsewhere
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {contactSocials.map((link, index) => (
+                  <motion.a
+                    key={link.platform}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.platform}
+                    title={link.platform}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="inline-flex items-center justify-center size-11 bg-[rgb(var(--bg-secondary))] hover:bg-accent/10 border border-[rgb(var(--border-color))] text-[rgb(var(--text-secondary))] dark:text-accent-light hover:border-accent/50 hover:text-accent dark:hover:text-white rounded-lg transition-all"
+                  >
+                    <SocialIcon platform={link.platform} />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>
