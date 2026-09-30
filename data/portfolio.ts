@@ -80,6 +80,8 @@ export const personalInfo = {
    */
   calendlyUrl: "https://calendly.com/justinpaul1025",
   availability: "Available for full-time & contract",
+  /** Served from /public/resume — keep source copy in /docs if regenerating */
+  resumeUrl: "/resume/Justin-Paul-Layan-Resume.docx",
   headline: "Shopify Developer building fast, converting stores",
   subheadline:
     "Specializing in Shopify theme development, checkout extensibility, and CRO. Building merchant-friendly stores with Shopify Plus — and using AI tools like Cursor and Shopify Sidekick to move faster without cutting corners.",
@@ -320,8 +322,7 @@ export const projects: Project[] = [
     category: "shopify",
     image: "/images/projects/value-buds.jpg",
     role: "Shopify Developer",
-
-
+    featured: true,
   },
   {
     id: "zeanoir",

@@ -111,7 +111,7 @@ export default function Contact() {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-lg bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border-color))] text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-secondary))]/60 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors";
+    "w-full px-4 py-3 rounded-lg bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border-color))] text-[rgb(var(--text-primary))] placeholder:text-[rgb(var(--text-secondary))]/60 dark:placeholder:text-[rgb(var(--text-primary))]/55 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors";
 
   return (
     <div className="section-panel">
@@ -132,22 +132,22 @@ export default function Contact() {
           </div>
 
           <div className="order-1 lg:order-2 min-w-0 flex-1 max-w-full">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent dark:text-accent-light mb-3">
               Contact
             </p>
             <h2 className="section-heading-lead leading-tight">
               Let&apos;s create something
             </h2>
-            <p className="text-[rgb(var(--text-secondary))] leading-relaxed mb-4">
+            <p className="text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/80 leading-relaxed mb-4">
               {personalInfo.availability}. Whether you need Shopify theme work,
               checkout customization, or a full store build — I&apos;d love to hear
               about your project.
             </p>
-            <p className="text-sm text-[rgb(var(--text-secondary))] mb-8">
+            <p className="text-sm text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/75 mb-8">
               Use the form below, email{" "}
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="text-accent hover:underline font-medium"
+                className="text-accent hover:underline font-medium dark:text-accent-light"
               >
                 {personalInfo.email}
               </a>
@@ -156,7 +156,7 @@ export default function Contact() {
                 href={personalInfo.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:underline font-medium"
+                className="text-accent hover:underline font-medium dark:text-accent-light"
               >
                 WhatsApp
               </a>
@@ -166,7 +166,7 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={handleBookMeeting}
-                    className="text-accent hover:underline font-medium bg-transparent border-0 p-0 cursor-pointer inline"
+                    className="text-accent hover:underline font-medium dark:text-accent-light bg-transparent border-0 p-0 cursor-pointer inline"
                   >
                     book a meeting
                   </button>
@@ -249,7 +249,7 @@ export default function Contact() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[rgb(var(--border-color))]">
-          <p className="text-sm text-[rgb(var(--text-secondary))] mb-4">
+          <p className="text-sm text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/70 mb-4">
             Or connect elsewhere
           </p>
           <div className="flex flex-wrap gap-3">
@@ -264,7 +264,7 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="inline-flex items-center justify-center size-11 bg-[rgb(var(--bg-secondary))] hover:bg-accent/10 border border-[rgb(var(--border-color))] hover:border-accent/50 hover:text-accent rounded-lg transition-all"
+                className="inline-flex items-center justify-center size-11 bg-[rgb(var(--bg-secondary))] hover:bg-accent/10 border border-[rgb(var(--border-color))] text-[rgb(var(--text-secondary))] dark:text-accent-light hover:border-accent/50 hover:text-accent dark:hover:text-white rounded-lg transition-all"
               >
                 <SocialIcon platform={link.platform} />
               </motion.a>

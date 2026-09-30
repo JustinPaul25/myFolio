@@ -74,12 +74,12 @@ function ShopifyCard({
 
       <div className="p-5 flex flex-col flex-1">
         {project.role && (
-          <p className="text-xs font-medium uppercase tracking-wide text-accent mb-1.5">
+          <p className="text-xs font-medium uppercase tracking-wide text-accent dark:text-accent-light mb-1.5">
             {project.role}
           </p>
         )}
         <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-        <p className="text-sm text-[rgb(var(--text-secondary))] leading-relaxed mb-4 line-clamp-3">
+        <p className="text-sm text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/80 leading-relaxed mb-4 line-clamp-3">
           {project.description}
         </p>
 
@@ -87,7 +87,7 @@ function ShopifyCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 text-[11px] font-mono bg-[rgb(var(--bg-primary))] border border-[rgb(var(--border-color))] rounded text-[rgb(var(--text-secondary))]"
+              className="px-2 py-0.5 text-[11px] font-mono bg-[rgb(var(--bg-primary))] border border-[rgb(var(--border-color))] rounded text-[rgb(var(--text-secondary))] dark:text-[rgb(var(--text-primary))]/75"
             >
               {tag}
             </span>
@@ -102,7 +102,7 @@ function ShopifyCard({
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-dark transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-dark dark:text-accent-light dark:hover:text-white transition-colors"
               >
                 {link.label || linkLabel}
                 <svg
@@ -124,7 +124,7 @@ function ShopifyCard({
         )}
 
         {project.linkNote && (
-          <p className="text-xs text-[rgb(var(--text-secondary))]/80 italic mt-3">
+          <p className="text-xs text-[rgb(var(--text-secondary))] dark:text-accent-light/90 italic mt-3">
             Note: {project.linkNote}
           </p>
         )}
