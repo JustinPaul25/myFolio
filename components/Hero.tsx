@@ -157,7 +157,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               {personalInfo.resumeUrl ? (
                 <a
                   href={personalInfo.resumeUrl}
-                  download="Justin-Paul-Layan-Resume.docx"
+                  download="Justin-Paul-Layan-Resume.pdf"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[rgb(var(--bg-secondary))] hover:border-accent/50 border border-[rgb(var(--border-color))] font-medium rounded-lg transition-colors"
                 >
                   <HiOutlineDownload className="size-4 shrink-0" aria-hidden />

@@ -10,10 +10,12 @@ const inter = Inter({ subsets: ["latin"] });
 const siteUrl = getSiteUrl();
 const title = `${personalInfo.name} | ${personalInfo.role}`;
 const description = `${personalInfo.headline}. ${personalInfo.subheadline}`;
+/** Dedicated social share image (1200×630) — profile photo is too large for crawlers. */
+const ogImagePath = "/og-image.jpg";
 const ogImage = {
-  url: personalInfo.profilePhoto,
-  width: 800,
-  height: 800,
+  url: ogImagePath,
+  width: 1200,
+  height: 630,
   alt: personalInfo.name,
 };
 
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description: personalInfo.headline,
-    images: [personalInfo.profilePhoto],
+    images: [ogImagePath],
   },
   robots: {
     index: true,

@@ -3,6 +3,9 @@
   publish = ".next"
 
 [build.environment]
+  # Baked into Open Graph / canonical URLs at build time. Override in the Netlify UI
+  # only with a real domain (never a placeholder like "https://test").
+  NEXT_PUBLIC_SITE_URL = "https://www.jplayan.site"
   # NEXT_PUBLIC_* values are intentionally inlined into the client bundle.
   # Netlify secret scanning also false-positives heavily inside Next.js / plugin output.
   SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,NEXT_PUBLIC_SITE_URL"

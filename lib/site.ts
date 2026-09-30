@@ -1,3 +1,6 @@
+/** Canonical production origin — used when env is missing or invalid. */
+const PRODUCTION_SITE_URL = "https://www.jplayan.site";
+
 /** Canonical site origin — set NEXT_PUBLIC_SITE_URL in production. */
 function normalizeOrigin(value: string): string | null {
   const trimmed = value.trim().replace(/\/$/, "");
@@ -12,15 +15,25 @@ function normalizeOrigin(value: string): string | null {
   for (const candidate of candidates) {
     try {
       const url = new URL(candidate);
-      if (url.protocol === "http:" || url.protocol === "https:") {
-        return url.origin;
-      }
+      if (url.protocol !== "http:" && url.protocol !== "https:") continue;
+      if (!isPlausibleHost(url.hostname)) continue;
+      return url.origin;
     } catch {
       // try next candidate
     }
   }
 
   return null;
+}
+
+/** Reject placeholder hosts like "test" that break Open Graph absolute URLs. */
+function isPlausibleHost(hostname: string): boolean {
+  const host = hostname.toLowerCase();
+  if (host === "localhost" || host === "127.0.0.1" || host === "::1") {
+    return true;
+  }
+  // Require a real domain (e.g. jplayan.site), not a single label like "test"
+  return host.includes(".");
 }
 
 export function getSiteUrl(): string {
@@ -40,6 +53,10 @@ export function getSiteUrl(): string {
   if (process.env.VERCEL_URL) {
     const normalized = normalizeOrigin(`https://${process.env.VERCEL_URL}`);
     if (normalized) return normalized;
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    return PRODUCTION_SITE_URL;
   }
 
   return "http://localhost:3000";
